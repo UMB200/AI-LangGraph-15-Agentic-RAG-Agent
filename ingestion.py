@@ -33,7 +33,7 @@ doc_splitter =text_splitter.split_documents(doc_list)
 
 # 5. VECTOR STORE (Now using the chunks, not the full docs)
 # vector_store = Chroma.from_documents(
-#     documents=doc_list,
+#     documents=doc_splitter,
 #     collection_name="rag-chroma",
 #     embedding=OpenAIEmbeddings(),
 #     persist_directory="./.chroma"
@@ -46,4 +46,4 @@ retriever = Chroma(
     collection_name="rag-chroma",
     persist_directory="./.chroma",
     embedding_function=OpenAIEmbeddings()
-).as_retriever()
+).as_retriever(search_kwargs={"k": 3})
