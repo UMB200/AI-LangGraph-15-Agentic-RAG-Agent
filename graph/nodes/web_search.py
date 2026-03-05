@@ -8,7 +8,7 @@ load_dotenv()
 tavily_search_tool = TavilySearch(max_results=3)
 
 def web_search(state:GraphState) -> Dict[str, Any]:
-    print("*******Web Search********")
+    print("*******Web Search*******")
     qstn = state["question"]
     doc = state["documents"]
 

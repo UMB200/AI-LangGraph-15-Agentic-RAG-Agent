@@ -3,7 +3,7 @@ from graph.state import GraphState
 from ingestion import retriever
 
 def retrieve(state:GraphState) -> Dict[str, Any]:
-    print("----RETRIEVE----")
+    print("*******Retrieving*******")
     question = state["question"]
     documents = retriever.invoke(question)
     return {

@@ -14,7 +14,7 @@ def grade_docs(state: GraphState) -> Dict[str, Any]:
         state (dict): Filtered out irrelevant documents and updated web_search state
     """
 
-    print("---CHECK DOCUMENT RELEVANCE TO QUESTION---")
+    print("*******Check document's relevance to questions*******")
     question = state["question"]
     documents = state["documents"]
 
@@ -26,10 +26,10 @@ def grade_docs(state: GraphState) -> Dict[str, Any]:
         )
         grade = score.binary_score
         if grade.lower() == "yes":
-            print("---GRADE: DOCUMENT RELEVANT---")
+            print("*******GRADE: Document relevant*******")
             filtered_docs.append(d)
         else:
-            print("---GRADE: DOCUMENT NOT RELEVANT---")
+            print("*******GRADE: Document not relevant*******")
             web_search = True
             continue
     return {"documents": filtered_docs, "question": question, "web_search": web_search}
